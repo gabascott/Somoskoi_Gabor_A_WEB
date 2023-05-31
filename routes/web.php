@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\KategoriaController;
+use App\Http\Controllers\TesztController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+Route::get('/api/tesztek', [TesztController::class, 'tesztekKategoriaval']);
+Route::get('/api/kategoriak', [KategoriaController::class, 'index']);
